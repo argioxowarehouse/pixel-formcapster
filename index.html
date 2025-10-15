@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Capster Barbershop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .custom-green {
+            background-color: #0c7565;
+        }
+        .custom-green-light {
+            background-color: #0f8a76;
+        }
+        .custom-green-dark {
+            background-color: #0a5f52;
+        }
+        .border-green {
+            border-color: #0c7565;
+        }
+        .text-green {
+            color: #0c7565;
+        }
+        .focus-green:focus {
+            border-color: #0c7565;
+            box-shadow: 0 0 0 3px rgba(12, 117, 101, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-full">
+    <div class="max-w-4xl mx-auto p-6">
+        <!-- Header -->
+        <div class="custom-green text-white p-8 rounded-t-lg text-center">
+            <!-- Logo -->
+            <div class="mb-6">
+                <svg id="Layer_1" data-name="Layer 1" height="80" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" class="mx-auto viewBox="0 0 265.65 76.07"">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #ffffff;
+                      }
+                    </style>
+                  </defs>
+                  <g>
+                    <g>
+                      <path class="cls-1" d="M38.89,31.29c3.99,0,6.41-2.08,6.41-5.26v-.12c0-3.47-2.43-5.32-6.47-5.32h-5.26v10.69h5.32ZM22.36,11.18h17.33c10.23,0,16.81,5.26,16.81,14.21v.12c0,9.53-7.34,14.56-17.39,14.56h-5.55v11.55h-11.21V11.18Z"/>
+                      <path class="cls-1" d="M123.05,31.06l-13.29-19.87h12.88l7.16,11.38,7.22-11.38h12.59l-13.29,19.76,13.86,20.68h-12.88l-7.74-12.19-7.8,12.19h-12.6l13.87-20.57Z"/>
+                      <path class="cls-1" d="M170.41,11.18h32.53v9.53h-21.43v6.12h19.41v8.84h-19.41v6.41h21.72v9.53h-32.82V11.18Z"/>
+                      <path class="cls-1" d="M224.94,11.18h11.21v30.62h19.59v9.82h-30.79V11.18Z"/>
+                      <path class="cls-1" d="M87.44,44.87l2.21-2.21v2.21h-2.21ZM81.96,7.28h1.71c2.97,0,5.49,2.19,5.92,5.13h-9.72c.61-1.05,1.73-1.7,2.94-1.71v-1.71c-2.17,0-4.1,1.37-4.83,3.42h-1.95c.43-2.94,2.95-5.12,5.92-5.13ZM89.65,40.24l-4.63,4.63h-5.27l9.9-9.9v5.27ZM89.65,24.01l-13.67,13.67v-6.13l13.67-13.67v6.13ZM75.98,29.14v-5.27l6.33-6.33h5.27l-11.61,11.61ZM75.98,21.45v-3.92h3.92l-3.92,3.92ZM75.98,40.1l13.67-13.67v6.13l-12.31,12.31h-1.35v-4.77ZM83.67,55.12h-1.71c-2.97,0-5.49-2.19-5.92-5.13h9.72c-.61,1.05-1.73,1.7-2.94,1.71v1.71c2.17,0,4.1-1.37,4.83-3.42h1.95c-.43,2.94-2.95,5.12-5.92,5.13ZM91.36,48.29h-17.09v-1.71h17.09v1.71ZM91.36,15.82h-17.09v-1.71h17.09v1.71Z"/>
+                    </g>
+                    <rect class="cls-1" x="11.18" width="11.18" height="11.18"/>
+                    <rect class="cls-1" y="11.18" width="11.18" height="11.18"/>
+                    <rect class="cls-1" x="255.87" y="31.9" width="9.78" height="9.78"/>
+                    <rect class="cls-1" x="245.95" y="22.12" width="9.78" height="9.78"/>
+                  </g>
+                  <g>
+                    <path class="cls-1" d="M32.35,73.98c-.21.42-.52.76-.92,1.04-.4.28-.88.49-1.44.62s-1.18.21-1.86.21h-5.77v-12.14h5.63c1.25,0,2.22.28,2.94.85.71.57,1.06,1.33,1.06,2.29v.03c0,.35-.04.65-.13.92-.09.27-.2.51-.35.72s-.31.4-.5.56c-.19.16-.39.3-.61.42.7.27,1.26.63,1.66,1.08.4.46.61,1.09.61,1.9v.03c0,.56-.11,1.04-.32,1.46ZM29.35,67.31c0-.4-.15-.71-.45-.93-.3-.21-.73-.32-1.3-.32h-2.64v2.57h2.46c.59,0,1.06-.1,1.4-.3.35-.2.52-.53.52-.98v-.03ZM30.03,72.16c0-.4-.16-.73-.47-.96s-.82-.36-1.51-.36h-3.09v2.67h3.17c.59,0,1.05-.11,1.39-.32.34-.21.5-.55.5-1v-.03Z"/>
+                    <path class="cls-1" d="M56.07,75.86l-1.11-2.72h-5.13l-1.11,2.72h-2.72l5.2-12.23h2.46l5.2,12.23h-2.79ZM52.39,66.84l-1.61,3.94h3.23l-1.61-3.94Z"/>
+                    <path class="cls-1" d="M80.25,75.86l-2.6-3.89h-2.1v3.89h-2.67v-12.14h5.55c1.44,0,2.57.35,3.37,1.06s1.21,1.69,1.21,2.95v.03c0,.98-.24,1.78-.72,2.4-.48.62-1.11,1.07-1.88,1.36l2.97,4.34h-3.12ZM80.3,67.86c0-.58-.18-1.01-.55-1.3-.37-.29-.89-.43-1.54-.43h-2.66v3.49h2.71c.66,0,1.16-.16,1.52-.47.35-.31.53-.73.53-1.25v-.03Z"/>
+                    <path class="cls-1" d="M107.54,73.98c-.21.42-.52.76-.92,1.04-.4.28-.88.49-1.44.62s-1.18.21-1.86.21h-5.77v-12.14h5.63c1.25,0,2.22.28,2.94.85.71.57,1.06,1.33,1.06,2.29v.03c0,.35-.04.65-.13.92-.09.27-.2.51-.35.72s-.31.4-.5.56c-.19.16-.39.3-.61.42.7.27,1.26.63,1.66,1.08.4.46.61,1.09.61,1.9v.03c0,.56-.11,1.04-.32,1.46ZM104.55,67.31c0-.4-.15-.71-.45-.93-.3-.21-.73-.32-1.3-.32h-2.64v2.57h2.46c.59,0,1.06-.1,1.4-.3.35-.2.52-.53.52-.98v-.03ZM105.23,72.16c0-.4-.16-.73-.47-.96s-.82-.36-1.51-.36h-3.09v2.67h3.17c.59,0,1.05-.11,1.39-.32.34-.21.5-.55.5-1v-.03Z"/>
+                    <path class="cls-1" d="M122.22,75.86v-12.14h9.14v2.38h-6.51v2.46h5.72v2.38h-5.72v2.55h6.59v2.38h-9.23Z"/>
+                    <path class="cls-1" d="M153.36,75.86l-2.6-3.89h-2.1v3.89h-2.67v-12.14h5.55c1.44,0,2.57.35,3.37,1.06.8.71,1.21,1.69,1.21,2.95v.03c0,.98-.24,1.78-.72,2.4-.48.62-1.11,1.07-1.88,1.36l2.97,4.34h-3.12ZM153.41,67.86c0-.58-.19-1.01-.55-1.3-.37-.29-.89-.43-1.55-.43h-2.65v3.49h2.71c.66,0,1.17-.16,1.52-.47.35-.31.53-.73.53-1.25v-.03Z"/>
+                    <path class="cls-1" d="M179.12,73.87c-.22.47-.52.86-.91,1.18-.39.32-.86.56-1.4.73s-1.14.25-1.8.25c-.93,0-1.83-.16-2.72-.48-.89-.32-1.7-.81-2.43-1.47l1.58-1.89c.55.45,1.12.81,1.71,1.08.59.27,1.22.4,1.92.4.56,0,.99-.1,1.29-.3.31-.2.46-.48.46-.84v-.03c0-.17-.03-.33-.1-.46s-.18-.26-.37-.37c-.18-.12-.43-.23-.75-.35-.32-.12-.73-.24-1.24-.36-.62-.15-1.17-.32-1.67-.5-.5-.18-.92-.41-1.27-.69-.35-.27-.62-.61-.81-1.01s-.29-.91-.29-1.51v-.03c0-.56.1-1.06.31-1.5s.5-.83.87-1.15c.37-.32.82-.57,1.34-.75s1.09-.26,1.71-.26c.89,0,1.71.13,2.45.4s1.43.65,2.06,1.14l-1.39,2.01c-.54-.37-1.07-.66-1.6-.88-.52-.21-1.04-.32-1.56-.32s-.91.1-1.17.3-.39.45-.39.75v.03c0,.2.04.37.11.51.08.14.21.27.41.39.2.12.47.23.81.33.34.1.77.23,1.3.36.61.16,1.16.34,1.64.55s.89.45,1.22.73c.33.28.58.62.75,1,.17.38.25.84.25,1.37v.03c0,.6-.11,1.14-.33,1.61Z"/>
+                    <path class="cls-1" d="M201.51,75.86v-4.87h-4.92v4.87h-2.67v-12.14h2.67v4.81h4.92v-4.81h2.67v12.14h-2.67Z"/>
+                    <path class="cls-1" d="M231.12,72.22c-.33.76-.77,1.42-1.35,1.99s-1.25,1.02-2.05,1.35-1.66.49-2.59.49-1.8-.16-2.58-.49c-.78-.33-1.47-.77-2.04-1.34-.57-.56-1.02-1.22-1.34-1.98-.32-.76-.48-1.57-.48-2.44v-.03c0-.87.16-1.68.49-2.44.32-.76.77-1.42,1.34-1.99s1.26-1.02,2.05-1.35c.79-.33,1.66-.49,2.59-.49s1.8.17,2.58.49c.79.33,1.47.77,2.04,1.34s1.02,1.22,1.34,1.98.48,1.57.48,2.44v.03c0,.87-.16,1.68-.48,2.44ZM228.82,69.79c0-.52-.09-1.01-.27-1.47s-.43-.87-.76-1.21c-.33-.35-.72-.62-1.17-.82s-.94-.3-1.48-.3-1.04.1-1.48.3c-.44.2-.83.47-1.14.82-.32.35-.57.75-.75,1.21-.18.46-.27.95-.27,1.47v.03c0,.52.09,1.01.27,1.47.18.46.43.87.76,1.21.33.35.72.62,1.16.82.44.2.94.3,1.48.3s1.02-.1,1.48-.3c.45-.2.83-.47,1.15-.82s.57-.75.75-1.21.27-.95.27-1.47v-.03Z"/>
+                    <path class="cls-1" d="M255.35,69.8c-.25.53-.61.98-1.05,1.34-.45.36-.97.63-1.56.81-.6.18-1.24.27-1.92.27h-2.03v3.64h-2.67v-12.14h4.96c.73,0,1.38.1,1.95.3s1.06.49,1.46.86c.4.37.7.81.92,1.33s.32,1.08.32,1.71v.03c0,.71-.13,1.32-.38,1.86ZM253.03,67.97c0-.6-.19-1.06-.58-1.37-.39-.31-.92-.47-1.59-.47h-2.06v3.71h2.12c.67,0,1.19-.18,1.56-.53.37-.35.55-.79.55-1.31v-.03Z"/>
+                  </g>
+                </svg>
+            </div>
+            
+            <h1 class="text-3xl font-bold mb-2">PENDAFTARAN CAPSTER</h1>
+            <h2 class="text-xl font-semibold">PIXEL BARBERSHOP</h2>
+            <p class="mt-4 text-green-100">Bergabunglah dengan tim profesional kami</p>
+        </div>
+
+        <!-- Form -->
+        <div class="bg-white p-8 rounded-b-lg shadow-lg">
+            <form id="registrationForm" class="space-y-6">
+                <!-- Data Pribadi -->
+                <div class="border-l-4 border-green pl-4">
+                    <h3 class="text-xl font-semibold text-green mb-4">Data Pribadi</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Nama Lengkap <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="namaLengkap" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                               placeholder="Masukkan nama lengkap">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Tempat & Tanggal Lahir <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="tempatTanggalLahir" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                               placeholder="Contoh: Jakarta, 15 Januari 1995">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Jenis Kelamin <span class="text-red-500">*</span>
+                        </label>
+                        <select id="jenisKelamin" required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors">
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Status <span class="text-red-500">*</span>
+                        </label>
+                        <select id="status" required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors">
+                            <option value="">Pilih Status</option>
+                            <option value="Single">Single</option>
+                            <option value="Menikah">Menikah</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Alamat Lengkap (Domisili sekarang) <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="alamat" required rows="3"
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                              placeholder="Masukkan alamat lengkap domisili saat ini"></textarea>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Nomor HP / WhatsApp <span class="text-red-500">*</span>
+                        </label>
+                        <input type="tel" id="nomorHP" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                               placeholder="Contoh: 08123456789">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Email (jika ada)
+                        </label>
+                        <input type="email" id="email" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                               placeholder="contoh@email.com">
+                    </div>
+                </div>
+
+                <!-- Pengalaman Kerja -->
+                <div class="border-l-4 border-green pl-4 mt-8">
+                    <h3 class="text-xl font-semibold text-green mb-4">Pengalaman Kerja sebagai Capster</h3>
+                </div>
+
+                <div id="pengalamanKerja" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tahun</label>
+                            <input type="text" name="tahun[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Contoh: 2020-2022">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Kerja</label>
+                            <input type="text" name="tempatKerja[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Nama barbershop/salon">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tahun</label>
+                            <input type="text" name="tahun[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Contoh: 2018-2020">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Kerja</label>
+                            <input type="text" name="tempatKerja[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Nama barbershop/salon">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tahun</label>
+                            <input type="text" name="tahun[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Contoh: 2016-2018">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Kerja</label>
+                            <input type="text" name="tempatKerja[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Nama barbershop/salon">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tahun</label>
+                            <input type="text" name="tahun[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Contoh: 2014-2016">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Kerja</label>
+                            <input type="text" name="tempatKerja[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Nama barbershop/salon">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tahun</label>
+                            <input type="text" name="tahun[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Contoh: 2012-2014">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Kerja</label>
+                            <input type="text" name="tempatKerja[]" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus-green focus:outline-none"
+                                   placeholder="Nama barbershop/salon">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keahlian dan Motivasi -->
+                <div class="border-l-4 border-green pl-4 mt-8">
+                    <h3 class="text-xl font-semibold text-green mb-4">Keahlian & Motivasi</h3>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Apakah menguasai Keahlian Khusus 
+                    </label>
+                    <textarea id="keahlianKhusus" rows="3"
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                              placeholder="Sebutkan keahlian khusus yang dikuasai, contoh: fade cut, taper cut, beard styling, treatment rambut, dll"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Motivasi Melamar di Barbershop
+                    </label>
+                    <textarea id="motivasi" rows="4"
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                              placeholder="Ceritakan motivasi dan alasan Anda ingin bergabung dengan barbershop kami"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Akun Instagram / TikTok (jika aktif)
+                    </label>
+                    <input type="text" id="sosialMedia" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus-green focus:outline-none transition-colors"
+                           placeholder="Contoh: @username_instagram atau @username_tiktok">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-6">
+                    <button type="submit" 
+                            class="w-full custom-green hover:custom-green-light text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 shadow-lg">
+                        Kirim Pendaftaran ke WhatsApp
+                    </button>
+                </div>
+
+                <p class="text-sm text-gray-500 text-center mt-4">
+                    <span class="text-red-500">*</span> Wajib diisi
+                </p>
+            </form>
+            <!-- Footer -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-center text-sm text-gray-500">
+                    © Pixel Barbershop 2025 - All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validasi field wajib
+            const requiredFields = ['namaLengkap', 'tempatTanggalLahir', 'jenisKelamin', 'alamat', 'nomorHP', 'status'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#d1d5db';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Mohon lengkapi semua field yang wajib diisi (*)');
+                return;
+            }
+            
+            // Kumpulkan data form
+            const formData = {
+                namaLengkap: document.getElementById('namaLengkap').value,
+                tempatTanggalLahir: document.getElementById('tempatTanggalLahir').value,
+                jenisKelamin: document.getElementById('jenisKelamin').value,
+                alamat: document.getElementById('alamat').value,
+                nomorHP: document.getElementById('nomorHP').value,
+                email: document.getElementById('email').value,
+                status: document.getElementById('status').value,
+                keahlianKhusus: document.getElementById('keahlianKhusus').value,
+                motivasi: document.getElementById('motivasi').value,
+                sosialMedia: document.getElementById('sosialMedia').value
+            };
+            
+            // Kumpulkan pengalaman kerja
+            const tahunInputs = document.querySelectorAll('input[name="tahun[]"]');
+            const tempatKerjaInputs = document.querySelectorAll('input[name="tempatKerja[]"]');
+            let pengalamanKerja = [];
+            
+            for (let i = 0; i < tahunInputs.length; i++) {
+                if (tahunInputs[i].value.trim() || tempatKerjaInputs[i].value.trim()) {
+                    pengalamanKerja.push({
+                        tahun: tahunInputs[i].value,
+                        tempatKerja: tempatKerjaInputs[i].value
+                    });
+                }
+            }
+            
+            // Buat pesan WhatsApp
+            let message = `*PENDAFTARAN CAPSTER BARBERSHOP*\n\n`;
+            message += `*DATA PRIBADI*\n`;
+            message += `Nama Lengkap: ${formData.namaLengkap}\n`;
+            message += `Tempat & Tanggal Lahir: ${formData.tempatTanggalLahir}\n`;
+            message += `Jenis Kelamin: ${formData.jenisKelamin}\n`;
+            message += `Status: ${formData.status}\n`;
+            message += `Alamat: ${formData.alamat}\n`;
+            message += `Nomor HP/WhatsApp: ${formData.nomorHP}\n`;
+            message += `Email: ${formData.email || 'Tidak ada'}\n\n`;
+            
+            if (pengalamanKerja.length > 0) {
+                message += `*PENGALAMAN KERJA SEBAGAI CAPSTER*\n`;
+                pengalamanKerja.forEach((exp, index) => {
+                    message += `${index + 1}. ${exp.tahun} - ${exp.tempatKerja}\n`;
+                });
+                message += `\n`;
+            }
+            
+            message += `*KEAHLIAN & MOTIVASI*\n`;
+            message += `Keahlian Khusus: ${formData.keahlianKhusus || 'Tidak ada'}\n`;
+            message += `Motivasi: ${formData.motivasi || 'Tidak ada'}\n`;
+            message += `Akun Sosial Media: ${formData.sosialMedia || 'Tidak ada'}\n`;
+            
+            // Encode pesan untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Buka WhatsApp
+            const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Tampilkan konfirmasi
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Berhasil Dikirim!';
+            submitBtn.style.backgroundColor = '#059669';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.backgroundColor = '#0c7565';
+            }, 3000);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98edd89c863fff78',t:'MTc2MDUxNTg5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
