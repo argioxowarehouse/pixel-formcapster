@@ -227,10 +227,10 @@
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Validasi field wajib
+            // 1. Validasi field wajib
             const requiredFields = ['namaLengkap', 'tempatTanggalLahir', 'jenisKelamin', 'alamat', 'nomorHP', 'status'];
             let isValid = true;
             
@@ -248,36 +248,77 @@
                 alert('Mohon lengkapi semua field yang wajib diisi (*)');
                 return;
             }
+
+            // Ubah tombol menjadi loading
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sedang Mengirim...';
+            submitBtn.disabled = true;
+            submitBtn.style.backgroundColor = '#9ca3af'; // Abu-abu saat loading
             
-            // Kumpulkan data form
+            // 2. Kumpulkan data dasar
+            // Catatan: Saya menghapus 'motivasi' karena tidak ada inputnya di HTML Anda untuk mencegah error
             const formData = {
                 namaLengkap: document.getElementById('namaLengkap').value,
                 tempatTanggalLahir: document.getElementById('tempatTanggalLahir').value,
                 jenisKelamin: document.getElementById('jenisKelamin').value,
                 alamat: document.getElementById('alamat').value,
                 nomorHP: document.getElementById('nomorHP').value,
-                email: document.getElementById('email').value,
+                email: document.getElementById('email').value || '-',
                 status: document.getElementById('status').value,
-                keahlianKhusus: document.getElementById('keahlianKhusus').value,
-                motivasi: document.getElementById('motivasi').value,
-                sosialMedia: document.getElementById('sosialMedia').value
+                keahlianKhusus: document.getElementById('keahlianKhusus').value || '-',
+                sosialMedia: document.getElementById('sosialMedia').value || '-'
             };
             
-            // Kumpulkan pengalaman kerja
+            // 3. Kumpulkan pengalaman kerja menjadi satu string rapi
             const tahunInputs = document.querySelectorAll('input[name="tahun[]"]');
             const tempatKerjaInputs = document.querySelectorAll('input[name="tempatKerja[]"]');
-            let pengalamanKerja = [];
+            let pengalamanArray = [];
             
             for (let i = 0; i < tahunInputs.length; i++) {
                 if (tahunInputs[i].value.trim() || tempatKerjaInputs[i].value.trim()) {
-                    pengalamanKerja.push({
-                        tahun: tahunInputs[i].value,
-                        tempatKerja: tempatKerjaInputs[i].value
-                    });
+                    pengalamanArray.push(`(${tahunInputs[i].value}) ${tempatKerjaInputs[i].value}`);
                 }
             }
+            const pengalamanString = pengalamanArray.length > 0 ? pengalamanArray.join('; ') : '-';
             
-            // Buat pesan WhatsApp
+            // --- BAGIAN 1: KIRIM KE GOOGLE SHEET (SHEETDB) ---
+            
+            // Siapkan data JSON sesuai format SheetDB
+            const dataForSheet = {
+                "Tanggal": new Date().toLocaleString('id-ID'),
+                "Nama": formData.namaLengkap,
+                "TTL": formData.tempatTanggalLahir,
+                "Jenis_Kelamin": formData.jenisKelamin,
+                "Status": formData.status,
+                "Alamat": formData.alamat,
+                "No_HP": "'" + formData.nomorHP, // Tanda kutip agar sheet tidak membaca sebagai angka/rumus
+                "Email": formData.email,
+                "Pengalaman": pengalamanString,
+                "Keahlian": formData.keahlianKhusus,
+                "Instagram": formData.sosialMedia
+            };
+
+            try {
+                // Fetch ke API SheetDB
+                await fetch('https://sheetdb.io/api/v1/8cqz1drxaq192', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ data: dataForSheet })
+                });
+                
+                console.log("Data berhasil terkirim ke Spreadsheet");
+
+            } catch (error) {
+                console.error("Gagal mengirim ke SheetDB:", error);
+                alert("Ada gangguan koneksi ke server, tapi akan tetap diarahkan ke WhatsApp.");
+            }
+
+            // --- BAGIAN 2: KIRIM KE WHATSAPP (Original Logic) ---
+            
             let message = `*PENDAFTARAN CAPSTER BARBERSHOP*\n\n`;
             message += `*DATA PRIBADI*\n`;
             message += `Nama Lengkap: ${formData.namaLengkap}\n`;
@@ -286,36 +327,33 @@
             message += `Status: ${formData.status}\n`;
             message += `Alamat: ${formData.alamat}\n`;
             message += `Nomor HP/WhatsApp: ${formData.nomorHP}\n`;
-            message += `Email: ${formData.email || 'Tidak ada'}\n\n`;
+            message += `Email: ${formData.email}\n\n`;
             
-            if (pengalamanKerja.length > 0) {
+            if (pengalamanArray.length > 0) {
                 message += `*PENGALAMAN KERJA SEBAGAI CAPSTER*\n`;
-                pengalamanKerja.forEach((exp, index) => {
-                    message += `${index + 1}. ${exp.tahun} - ${exp.tempatKerja}\n`;
+                pengalamanArray.forEach((exp, index) => {
+                    message += `${index + 1}. ${exp}\n`;
                 });
                 message += `\n`;
             }
             
             message += `*KEAHLIAN & MOTIVASI*\n`;
-            message += `Keahlian Khusus: ${formData.keahlianKhusus || 'Tidak ada'}\n`;
-            message += `Motivasi: ${formData.motivasi || 'Tidak ada'}\n`;
-            message += `Akun Sosial Media: ${formData.sosialMedia || 'Tidak ada'}\n`;
+            message += `Keahlian Khusus: ${formData.keahlianKhusus}\n`;
+            message += `Akun Sosial Media: ${formData.sosialMedia}\n`;
             
-            // Encode pesan untuk URL
             const encodedMessage = encodeURIComponent(message);
-            
-            // Buka WhatsApp
             const whatsappUrl = `https://wa.me/6285117759192?text=${encodedMessage}`;
+            
+            // Buka WhatsApp di tab baru
             window.open(whatsappUrl, '_blank');
             
-            // Reset form
-            //this.reset();
-            
-            // Tampilkan konfirmasi
-            const submitBtn = document.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Berhasil Dikirim!';
+            // Reset Tombol & Form
+            submitBtn.textContent = 'Berhasil Terkirim!';
             submitBtn.style.backgroundColor = '#059669';
+            submitBtn.disabled = false;
+            
+            // Opsional: Reset form setelah kirim
+            // document.getElementById('registrationForm').reset();
             
             setTimeout(() => {
                 submitBtn.textContent = originalText;
